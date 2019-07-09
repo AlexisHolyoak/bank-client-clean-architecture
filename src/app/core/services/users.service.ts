@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class UsersService {
   private currentUserSubject = new BehaviorSubject<UserAuth>(JSON.parse(localStorage.getItem('currentUser')));
-  private currentUser = this.currentUserSubject.asObservable();
+  public currentUser = this.currentUserSubject.asObservable();
   baseUrl = environment.baseUrl + '/api/users';
 
   constructor(private http: HttpClient) {

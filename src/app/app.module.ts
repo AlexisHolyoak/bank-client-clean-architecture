@@ -12,6 +12,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
 import {ErrorInterceptor} from './core/interceptors/ErrorInterceptor';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
+    NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot()
   ],

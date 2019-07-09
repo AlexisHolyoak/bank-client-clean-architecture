@@ -10,6 +10,7 @@ import {
 import {CustomerService} from '../../../../core/services/customer.service';
 import {Customer} from '../../../../core/models/customers/Customer';
 import {Router} from '@angular/router';
+import {NgxPermissionsService} from 'ngx-permissions';
 
 @Component({
   selector: 'app-get-paginated-customer',
@@ -23,7 +24,7 @@ export class GetPaginatedCustomerComponent implements OnInit, OnChanges {
   page = 1;
   totalRec: number;
 
-  constructor(private customerService: CustomerService, private router: Router) {
+  constructor(private customerService: CustomerService, private router: Router, private permissionService: NgxPermissionsService) {
   }
 
   ngOnInit() {
