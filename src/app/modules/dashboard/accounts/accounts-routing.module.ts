@@ -11,7 +11,7 @@ const routes: Routes = [
     canActivate: [NgxPermissionsGuard],
     data: {
       permissions: {
-        only: ['canAddAccount']
+        only: 'canAddAccount'
       }
     }
   },
@@ -21,7 +21,7 @@ const routes: Routes = [
     canActivate: [NgxPermissionsGuard],
     data: {
       permissions: {
-        only: ['canAccessAccounts']
+        only: 'canAccessAccounts'
       }
     }
   }

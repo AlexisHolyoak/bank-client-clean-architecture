@@ -43,6 +43,6 @@ export class UsersService {
   }
 
   getAll() {
-    return this.http.get<User>(this.baseUrl);
+    return this.http.get<User[]>(this.baseUrl);
   }
 }

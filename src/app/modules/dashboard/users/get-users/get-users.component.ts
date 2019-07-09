@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UsersService} from '../../../../core/services/users.service';
+import {User} from '../../../../core/models/users/User';
+import {Customer} from '../../../../core/models/customers/Customer';
 
 @Component({
   selector: 'app-get-users',
@@ -7,15 +9,17 @@ import {UsersService} from '../../../../core/services/users.service';
   styleUrls: ['./get-users.component.css']
 })
 export class GetUsersComponent implements OnInit {
-
-  constructor(private userService: UsersService) { }
+  users: User[] = [];
+  constructor(private userService: UsersService) {
+  }
 
   ngOnInit() {
     this.loadUsers();
   }
+
   loadUsers() {
     this.userService.getAll().subscribe(res => {
-      console.log(res);
+      this.users = res;
     });
   }
 }
