@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RequestBankTransfer} from '../../../../core/models/transactions/RequestBankTransfer';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BankTransferService} from '../../../../core/services/bank-transfer.service';
@@ -32,6 +32,8 @@ export class PerformBankTransferComponent implements OnInit {
     this.bankTransferService.performTransfer(this.requestBankTransfer).subscribe(res => {
       // TODO: show notification after performed transfer
       window.location.reload();
+    }, error => {
+      console.log(error);
     });
   }
 }

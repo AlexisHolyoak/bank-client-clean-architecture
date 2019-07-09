@@ -6,4 +6,8 @@ export class BankAccount {
   balance: number;
   isLocked: boolean;
   customer: Customer;
+
+  public constructor(init?: Partial<BankAccount>) {
+    Object.assign(this, init);
+  }
 }

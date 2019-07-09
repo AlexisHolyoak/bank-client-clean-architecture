@@ -8,6 +8,10 @@ import {DashboardComponent} from './layouts/dashboard/dashboard.component';
 import {WelcomeComponent} from './layouts/welcome/welcome.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './core/interceptors/JwtInterceptor';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import {ErrorInterceptor} from './core/interceptors/ErrorInterceptor';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -19,10 +23,14 @@ import {JwtInterceptor} from './core/interceptors/JwtInterceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot()
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

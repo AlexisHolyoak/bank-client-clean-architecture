@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.0.1",
+    "@angular/animations": "^8.1.0",
     "@angular/common": "~8.0.1",
     "@angular/compiler": "~8.0.1",
     "@angular/core": "~8.0.1",
@@ -22,8 +22,11 @@
     "@angular/router": "~8.0.1",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
+    "ngx-pagination": "^4.0.0",
+    "ngx-toastr": "^10.0.4",
     "popper": "^1.0.1",
     "rxjs": "~6.4.0",
+    "terser": "3.14.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

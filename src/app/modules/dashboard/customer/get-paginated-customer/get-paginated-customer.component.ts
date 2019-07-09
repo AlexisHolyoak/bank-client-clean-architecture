@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -10,6 +9,7 @@ import {
 } from '@angular/core';
 import {CustomerService} from '../../../../core/services/customer.service';
 import {Customer} from '../../../../core/models/customers/Customer';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-get-paginated-customer',
@@ -20,8 +20,10 @@ export class GetPaginatedCustomerComponent implements OnInit, OnChanges {
   customers: Customer[] = [];
   @Input() parentData;
   @Output() childEvent = new EventEmitter();
+  page = 1;
+  totalRec: number;
 
-  constructor(private customerService: CustomerService, private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private customerService: CustomerService, private router: Router) {
   }
 
   ngOnInit() {
@@ -36,5 +38,9 @@ export class GetPaginatedCustomerComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     this.customers.concat(this.parentData);
+  }
+
+  goToAccounts(customer: Customer) {
+    this.router.navigate(['/dashboard/accounts', customer.id]);
   }
 }

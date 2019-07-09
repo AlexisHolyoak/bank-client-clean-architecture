@@ -5,7 +5,7 @@ import {GetAccountsComponent} from './get-accounts/get-accounts.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':customerId',
     component: CreateAccountsComponent
   },
   {
